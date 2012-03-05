@@ -12,14 +12,16 @@ Technology Stack
 ----------------
 
 * Rails 3.2.2 / Ruby 1.9.3p125
-* Sass
+* Sass (with Bootstrap-Sass)
 * CoffeeScript
 * Haml
+* Draper
 * Foreman
 * Unicorn
 * Redis (Install Redis locally if you haven't already, designed to use a .redis directory in project root)
 * Resque
-* Memcache
+* Memcache/Dalli
+* Stripe
 
 Getting Started
 ---------------
