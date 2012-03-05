@@ -33,9 +33,9 @@ Getting Started
 5. bundle exec rake db:migrate
 6. bundle exec rake db:test:prepare
 7. bundle exec rake db:seed
-8. bundle exec foreman start
-9. open http://localhost:5100 to look around (Note it is 5100 instead of 5000 because Redis is first in the Procfile so Foreman skips to 5100 for the web.)
-10. Deploy to Heroku!
+8. bundle exec rake stripe:sync (This will sync the plans and coupons you set up on Stripe to your local db. Run whenver you change your plans/coupons on Stripe.)
+9. bundle exec foreman start
+10. open http://localhost:5100 to look around (Note it is 5100 instead of 5000 because Redis is first in the Procfile so Foreman skips to 5100 for the web.)
 
 Quirks
 ------
