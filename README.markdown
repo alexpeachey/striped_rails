@@ -45,6 +45,7 @@ Deploying to Heroku
 -------------------
 
 This project is designed for easy deployment to Heroku and all addon choices have a free version. Just scale up as needed.
+
 1. bundle exec heroku create yoursite --stack cedar
 2. bundle exec heroku addons:add redistogo
 3. bundle exec heroku addons:add memcache
@@ -52,8 +53,8 @@ This project is designed for easy deployment to Heroku and all addon choices hav
 5. bundle exec heroku addons:add sendgrid:starter
 6. bundle exec heroku addons:add piggyback_ssl
 
-Note: This project was done on ruby 1.9.3p125. It should work fine on 1.9.2 but Rails 3.2.x is best on 1.9.3 so you may wish to follow the Heroku instructions here:
-http://railsapps.github.com/rails-heroku-tutorial.html
+Note: This project was done on ruby 1.9.3p125. It should work fine on 1.9.2 but Rails 3.2.x is best on 1.9.3 so you may wish to follow the Heroku instructions here: http://railsapps.github.com/rails-heroku-tutorial.html
+
 1. heroku plugins:install https://github.com/heroku/heroku-labs.git
 2. heroku labs:enable user_env_compile -a myapp
 3. heroku config:add RUBY_VERSION=ruby-1.9.3-p125
