@@ -11,15 +11,15 @@ Next up is to break this out into an engine.
 Technology Stack
 ----------------
 
-Rails 3.2.2 / Ruby 1.9.3p125
-Sass
-CoffeeScript
-Haml
-Foreman
-Unicorn
-Redis (Install Redis locally if you haven't already, designed to use a .redis directory in project root)
-Resque
-Memcache
+* Rails 3.2.2 / Ruby 1.9.3p125
+* Sass
+* CoffeeScript
+* Haml
+* Foreman
+* Unicorn
+* Redis (Install Redis locally if you haven't already, designed to use a .redis directory in project root)
+* Resque
+* Memcache
 
 Getting Started
 ---------------
