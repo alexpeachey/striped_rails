@@ -1,0 +1,10 @@
+-title 'Edit User'
+
+%section.well
+  %header.edit_user_header
+    %h1 Editing user
+  = render 'form'
+  %p
+    = link_to 'Show', @user
+    |
+    = link_to 'All', users_path

@@ -1,0 +1,9 @@
+= simple_form_for @subscription_plan do |f|
+  %h2= @subscription_plan.vault_token
+  = f.input :unit_name, placeholder: 'Name for metered usage unit'
+  = f.input :included_units, placeholder: 'Included metered usage units'
+  = f.input :overage_price, placeholder: 'Price per additional unit (cents)'
+  = f.input :unavailable, hint: 'Will remove from user facing list'
+  = f.input :description, placeholder: 'HAML will be interpreted'
+  .form-actions
+    = f.submit 'Save', class: 'btn btn-primary'

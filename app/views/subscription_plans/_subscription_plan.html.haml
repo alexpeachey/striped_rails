@@ -1,0 +1,10 @@
+= content_tag_for(:article, subscription_plan, class: 'well') do
+  .row-fluid
+    .span6
+      %h2= subscription_plan.name
+      %p= subscription_plan.price
+      = subscription_plan.unit_information
+      = subscription_plan.trial_information
+      = current_user.subscription_plan_button(subscription_plan)
+    .span6
+      = subscription_plan.description

@@ -1,0 +1,14 @@
+<p><%= @user.full_name %>:</p>
+<br>
+<h2><%= @invoice.greeting %></h2>
+<br>
+<p><strong><%= @invoice.subscription_name %>:</strong> <%= @invoice.subscription_amount %>
+<%= @invoice.additional_charges(:html) %>
+<hr>
+<p><strong>Subtotal:</strong> <%= @invoice.subtotal %></p>
+<p><strong>Discount:</strong> <%= @invoice.discount %></p>
+<hr>
+<p><strong>Total:</strong> <%= @invoice.total %></p>
+<p><strong>Previous Balance:</strong> <%= @invoice.starting_balance %></p>
+<hr>
+<p><strong>Amount Due:</strong> <%= @invoice.amount_due %></p>

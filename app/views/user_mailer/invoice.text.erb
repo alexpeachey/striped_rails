@@ -1,0 +1,14 @@
+<%= @user.full_name %>:
+
+<%= @invoice.greeting %>
+
+<%= @invoice.subscription_name %>: <%= @invoice.subscription_amount %>
+<%= @invoice.additional_charges(:text) %>
+<%= '-'*60 %>
+Subtotal: <%= @invoice.subtotal %>
+Discount: <%= @invoice.discount %>
+<%= '-'*60 %>
+Total: <%= @invoice.total %>
+Previous Balance: <%= @invoice.starting_balance %>
+<%= '-'*60 %>
+Amount Due: <%= @invoice.amount_due %>

@@ -1,0 +1,7 @@
+-title @page.title
+
+= content_tag_for(:section, @page, class: 'well') do
+  %header.title
+    %h1= @page.title
+  %section.content= @page.content
+= current_user.page_editor(@page)

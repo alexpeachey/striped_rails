@@ -1,0 +1,20 @@
+-title 'Dashboard'
+
+%section.well
+  %header.dashboard_header
+    %h1= 'Brand Dashboard'
+%section.span6
+  .well
+    %h3= 'Stats'
+    %p= "Users: #{@users_count}"
+    %ul
+      = render partial: 'dashboards/subscription_plan', collection: @subscription_plans
+%section.span6
+  .well
+    %ul.nav.nav-list
+      %li.nav-header= "Site Administration"
+      %li= link_to 'Subscription Plans', subscription_plans_path
+      %li= link_to 'Coupons', coupons_path
+      %li= link_to 'Users', users_path
+      %li= link_to 'New Page', new_page_path
+      %li= link_to 'Admin Profile', profile_path

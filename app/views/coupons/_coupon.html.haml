@@ -1,0 +1,11 @@
+.coupon.alert.alert-info
+  %h2= coupon.coupon_code
+  %h3= coupon.percent_off
+  %p= "Duration: #{coupon.duration}"
+  %p= "For: #{coupon.duration_in_months} Months"
+  %p= "Redeemable: #{coupon.max_redemptions} Times"
+  %p= "Expiration: #{coupon.expiration}"
+  %p= "Users: #{coupon.users_count}"
+  %p= "Subscription Plans: #{coupon.applicable_plans}"
+  %p
+    = link_to 'Edit Applicable Plans', edit_coupon_path(coupon)

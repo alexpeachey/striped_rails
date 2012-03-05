@@ -1,0 +1,7 @@
+-title 'Edit Page'
+
+%section.well
+  %header.pages_header
+    %h1= 'Edit Page'
+  = render 'form'
+  = link_to 'Destroy', @page, :confirm => 'Are you sure?', :method => :delete

@@ -1,0 +1,11 @@
+#!/bin/bash
+
+# trap TERM and change to QUIT
+trap 'echo killing $PID; kill -QUIT $PID' TERM
+
+# program to run
+bundle exec rake resque:work QUEUE='*' &
+
+# capture PID and wait
+PID=$!
+wait

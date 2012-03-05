@@ -1,0 +1,5 @@
+= simple_form_for @coupon do |f|
+  %h2= @coupon.coupon_code
+  = f.association :subscription_plans, as: :check_boxes
+  .actions
+    = f.submit 'Save', class: 'btn btn-primary'
