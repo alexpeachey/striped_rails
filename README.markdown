@@ -1,12 +1,15 @@
-== Striped Rails Subscription Site
+Striped Rails Subscription Site
+===============================
 
 This project is a fully functional Rails 3.2.2 application that provides the basics to have a subscription website using Stripe as the payment processor. Just add functionality and content worth subscribing to and you are good to go! Made to work well with Heroku you can be up in no time at all.
 
-== Goals
+Goals
+-----
 
 Next up is to break this out into an engine.
 
-== Technology Stack
+Technology Stack
+----------------
 
 Rails 3.2.2 / Ruby 1.9.3p125
 Sass
@@ -18,7 +21,8 @@ Redis (Install Redis locally if you haven't already, designed to use a .redis di
 Resque
 Memcache
 
-== Getting Started
+Getting Started
+---------------
 
 1. Setup a Stripe account.
 2. Create any plans and coupons in Stripe.
@@ -31,12 +35,14 @@ Memcache
 9. open http://localhost:5100 to look around (Note it is 5100 instead of 5000 because Redis is first in the Procfile so Foreman skips to 5100 for the web.)
 10. Deploy to Heroku!
 
-== Quirks
+Quirks
+------
 
 1. To ensure you have your .env loaded when using the console use 'bundle exec foreman run rails console'. There is a bash script in the root called safe_console which does this for you.
 2. To safely shutdown resque there is a wrapper script called start_resque that the Procfile references.
 
-== Deploying to Heroku
+Deploying to Heroku
+-------------------
 
 This project is designed for easy deployment to Heroku and all addon choices have a free version. Just scale up as needed.
 1. bundle exec heroku create yoursite --stack cedar
