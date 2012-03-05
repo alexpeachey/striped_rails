@@ -18,10 +18,7 @@ class Coupon < ActiveRecord::Base
 
   def self.create_or_update_from_stripe(data)
     coupon = Coupon.where(coupon_code: data.id).first_or_initialize
-    data_hash = data.to_hash
-    data_hash.delete(:id)
-    data_hash.delete(:object)
-    data_hash.delete(:livemode)
+    data_hash = data.to_hash.slice(:percent_off,:duration,:duration_in_months,:max_redemptions,:redeem_by)
     data_hash[:redeem_by] = Time.at(data_hash[:redeem_by]) if data_hash[:redeem_by]
     coupon.update_attributes(data_hash)
   end
