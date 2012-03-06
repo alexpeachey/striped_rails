@@ -33,7 +33,7 @@ Getting Started
 5. bundle exec rake db:migrate
 6. bundle exec rake db:test:prepare
 7. bundle exec rake db:seed
-8. bundle exec rake stripe:sync (This will sync the plans and coupons you set up on Stripe to your local db. Run whenver you change your plans/coupons on Stripe.)
+8. bundle exec foreman run bundle exec rake stripe:sync (This will sync the plans and coupons you set up on Stripe to your local db. Run whenver you change your plans/coupons on Stripe.)
 9. bundle exec foreman start
 10. open http://localhost:5100 to look around (Note it is 5100 instead of 5000 because Redis is first in the Procfile so Foreman skips to 5100 for the web.)
 
@@ -42,6 +42,7 @@ Quirks
 
 1. To ensure you have your .env loaded when using the console use 'bundle exec foreman run rails console'. There is a bash script in the root called safe_console which does this for you.
 2. To safely shutdown resque there is a wrapper script called start_resque that the Procfile references.
+3. There is a script called sync_stripe that can be used locally to simplify the bundle exec foreman run bundle exec rake stripe:sync command.
 
 Deploying to Heroku
 -------------------
