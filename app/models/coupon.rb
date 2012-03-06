@@ -2,6 +2,7 @@ class Coupon < ActiveRecord::Base
   extend FriendlyId
   friendly_id :coupon_code
 
+  attr_accessible :coupon_code, :percent_off, :duration, :duration_in_months, :redeem_by, :max_redemptions, :times_redeemed, :coupon_subscription_plans, :coupon_subscription_plan_ids, :subscription_plans, :subscription_plan_ids
   validates_presence_of :coupon_code, :percent_off, :duration
   validates_length_of :coupon_code, in: 1..20
   validates_format_of :coupon_code, with: /\A[a-z0-9\-]+\Z/i
