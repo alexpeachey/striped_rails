@@ -41,8 +41,11 @@ class User < ActiveRecord::Base
   end
 
   def coupon_code=(val)
-    self.coupon = Coupon.find_by_coupon_code(val)
-
+    coupon = Coupon.find_by_coupon_code(val)
+    if coupon && coupon.subscription_plans.include?(subscription_plan)
+      self.coupon = coupon
+    end
+    
     self.coupon_code
   end
 

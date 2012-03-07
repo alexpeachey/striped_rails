@@ -249,20 +249,38 @@ describe User do
       @user.coupon_code.should == nil
     end
 
-    it "should assign the coupon when assigned a valid code" do
-      @user = Factory(:user)
-      @coupon = Factory(:coupon)
-      @user.coupon_code = @coupon.coupon_code
-      @user.coupon_code.should == @coupon.coupon_code
-      @user.coupon.should == @coupon
-    end
-
     it "should assign nil when assigned an invalid code" do
       @user = Factory(:user)
       @coupon = Factory(:coupon)
       @user.coupon_code = 'x'
       @user.coupon_code.should be_nil
       @user.coupon.should be_nil
+    end
+
+    it "should assign the coupon if applicable to plan" do
+      @subscription_plan = Factory(:subscription_plan)
+      @user = Factory(:user, subscription_plan: @subscription_plan)
+      @coupon = Factory(:coupon, subscription_plans: [@subscription_plan])
+      @user.coupon_code = @coupon.coupon_code
+      @user.coupon_code.should == @coupon.coupon_code
+      @user.coupon.should == @coupon
+    end
+
+    it "should not assign the coupon if not applicable to plan" do
+      @subscription_plan = Factory(:subscription_plan)
+      @user = Factory(:user, subscription_plan: @subscription_plan)
+      @coupon = Factory(:coupon)
+      @user.coupon_code = @coupon.coupon_code
+      @user.coupon_code.should_not == @coupon.coupon_code
+      @user.coupon.should_not == @coupon
+    end
+
+    it "should not assign the coupon if the user has no plan" do
+      @user = Factory(:user)
+      @coupon = Factory(:coupon)
+      @user.coupon_code = @coupon.coupon_code
+      @user.coupon_code.should_not == @coupon.coupon_code
+      @user.coupon.should_not == @coupon
     end
   end
 
