@@ -40,6 +40,7 @@ class SubscriptionPlan < ActiveRecord::Base
   def self.create_or_update_from_stripe(data)
     plan = SubscriptionPlan.where(vault_token: data.id).first_or_initialize
     data_hash = data.to_hash.slice(:amount,:interval,:name,:currency,:trial_period_days)
+    data_hash[:trial_period_days] ||= 0
     plan.update_attributes(data_hash)
   end
 

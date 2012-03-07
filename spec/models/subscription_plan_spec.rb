@@ -158,7 +158,7 @@ describe SubscriptionPlan do
 
   describe "#update_stripe_plans" do
     before :each do
-      FakeWeb.register_uri(:get, "https://dummy@api.stripe.com/v1/plans", body: '{ "count": 3, "data": [ { "currency": "usd", "object": "plan", "amount": 1000, "name": "Plan 1", "id": "plan-1", "interval": "month", "trial_period_days": 30 }, { "currency": "usd", "object": "plan", "amount": 2000, "name": "Plan 2", "id": "plan-2", "interval": "month" }, { "currency": "usd", "object": "plan", "amount": 9900, "name": "Plan 3", "id": "plan-3", "interval": "year" } ] }')
+      FakeWeb.register_uri(:get, "https://dummy@api.stripe.com/v1/plans", body: '{ "count": 3, "data": [ { "currency": "usd", "object": "plan", "amount": 1000, "name": "Plan 1", "id": "plan-1", "interval": "month", "trial_period_days": 30 }, { "currency": "usd", "object": "plan", "amount": 2000, "name": "Plan 2", "id": "plan-2", "interval": "month", "trial_period_days": null }, { "currency": "usd", "object": "plan", "amount": 9900, "name": "Plan 3", "id": "plan-3", "interval": "year", "trial_period_days": null } ] }')
     end
 
     it "should update the plans from stripe" do
