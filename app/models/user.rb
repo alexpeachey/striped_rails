@@ -2,8 +2,8 @@ class User < ActiveRecord::Base
   extend FriendlyId
   friendly_id :username
   has_secure_password
-  attr_accessor :current_password, :secondemail, :falsename, :card_token
-  attr_accessible :username, :email, :full_name, :password, :password_confirmation, :subscription_plan_id, :card_token, :coupon_code
+  attr_accessor :current_password, :email_confirmation, :username_confirmation, :card_token
+  attr_accessible :username, :email, :full_name, :password, :password_confirmation, :subscription_plan_id, :card_token, :coupon_code, :username_confirmation, :email_confirmation
   validates_presence_of :username, :email, :full_name
   validates_presence_of :password, :password_confirmation, on: :create
   validates_length_of :username, in: 1..50

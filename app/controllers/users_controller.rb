@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   skip_before_filter :require_login, only: [:new,:create]
   before_filter :load_subscription_plans, only: [:new,:create]
   before_filter :require_admin, except: [:new,:create]
+  before_filter :hunt_robots, only: [:create]
 
   def index
     @users = UserDecorator.all
@@ -80,5 +81,12 @@ class UsersController < ApplicationController
   private
   def load_subscription_plans
     @subscription_plans = SubscriptionPlanDecorator.decorate(SubscriptionPlan.by_amount)
+  end
+
+  def hunt_robots
+    if params[:user][:username_confirmation].present? || params[:user][:email_confirmation].present?
+      redirect_to sign_up_path
+      return false
+    end
   end
 end

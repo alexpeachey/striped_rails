@@ -11,7 +11,9 @@
     .fieldset
       %legend= 'Account Information'
       = f.input :username, placeholder: "Letters, numbers, and - OK"
+      .honey= f.input :username_confirmation, placeholder: "Don't fill this in if you are human.", hint: 'Do not fill this in.'
       = f.input :email, placeholder: "name@domain.com"
+      .honey= f.input :email_confirmation, placeholder: "Don't fill this in if you are human.", hint: 'Do not fill this in.'
       = f.input :full_name, label: "Your name or company name", placeholder: "John Doe"
       = f.input :password, placeholder: "Please pick something strong"
       = f.input :password_confirmation, placeholder: "Please type it again."
