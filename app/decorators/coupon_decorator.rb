@@ -6,7 +6,11 @@ class CouponDecorator < ApplicationDecorator
   end
 
   def expiration
-    coupon.redeem_by.strftime("%Y-%m-%d")
+    if coupon.redeem_by?
+      coupon.redeem_by.strftime("%Y-%m-%d")
+    else
+      'No expiration'
+    end
   end
 
   def applicable_plans
