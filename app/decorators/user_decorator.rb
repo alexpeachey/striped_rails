@@ -96,7 +96,7 @@ class UserDecorator < ApplicationDecorator
 
   def current_coupon
     if user.current_status
-      if user.current_status.respond_to?(:discount)
+      if user.current_status.respond_to?(:discount) && user.current_status.discount.respond_to?(:coupon)
         user.current_status.discount.coupon.id +
         ' - ' +
         user.current_status.discount.coupon.percent_off.to_s +
